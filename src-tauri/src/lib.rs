@@ -10,6 +10,14 @@ pub struct ScrcpyState {
 
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
+    // Fix for white screen on Linux (Wayland/NVIDIA)
+    #[cfg(target_os = "linux")]
+    {
+        if std::env::var("WEBKIT_DISABLE_COMPOSITING_MODE").is_err() {
+            std::env::set_var("WEBKIT_DISABLE_COMPOSITING_MODE", "1");
+        }
+    }
+
     tauri::Builder::default()
         .plugin(tauri_plugin_shell::init())
         .plugin(tauri_plugin_dialog::init())

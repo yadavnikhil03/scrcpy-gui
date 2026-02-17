@@ -26,6 +26,8 @@
   },
   "bundle": {
     "active": true,
+    "publisher": "KB-kil0bit",
+    "copyright": "Copyright © 2026 KB-kil0bit",
     "icon": [
       "icons/32x32.png",
       "icons/64x64.png",
