@@ -35,6 +35,21 @@
       "icons/icon.png",
       "icons/icon.icns",
       "icons/icon.ico"
-    ]
+    ],
+    "externalBin": [],
+    "resources": [],
+    "windows": {
+      "nsis": {
+        "oneClick": false,
+        "allowToChangeInstallationDirectory": true
+      }
+    },
+    "macos": {
+      "dmg": {}
+    },
+    "linux": {
+      "deb": {},
+      "appimage": {}
+    }
   }
 }

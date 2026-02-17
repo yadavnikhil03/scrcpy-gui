@@ -11,7 +11,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        platform: [macos-latest, ubuntu-22.04, windows-latest]
+        include:
+          - platform: macos-latest
+            args: --bundles dmg
+          - platform: ubuntu-22.04
+            args: --bundles appimage
+          - platform: windows-latest
+            args: --target x86_64-pc-windows-msvc --bundles nsis
+
     runs-on: ${{ matrix.platform }}
     steps:
       - name: Checkout repository
@@ -44,12 +51,12 @@ jobs:
         with:
           tagName: ${{ github.ref_name }}
           releaseName: 'ScrcpyGUI ${{ github.ref_name }}'
-          releaseBody: 'See the assets below for the latest binaries.'
+          releaseBody: 'Download ScrcpyGUI v3.1 for your platform.'
           releaseDraft: true
           prerelease: false
-          args: ${{ matrix.platform == 'windows-latest' && '--target x86_64-pc-windows-msvc --bundles nsis' || (matrix.platform == 'macos-latest' && '--bundles dmg' || '--bundles appimage') }}
+          args: ${{ matrix.args }}
 
-      # Build Windows x86 separately if on windows
+      # Build Windows x86 separately
       - name: Build Windows x86
         if: matrix.platform == 'windows-latest'
         uses: tauri-apps/tauri-action@v0
