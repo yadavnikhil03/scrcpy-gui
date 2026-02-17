@@ -13,11 +13,11 @@ jobs:
       matrix:
         include:
           - platform: macos-latest
-            args: --bundles dmg
+            args: ""
           - platform: ubuntu-22.04
-            args: --bundles appimage
+            args: ""
           - platform: windows-latest
-            args: --target x86_64-pc-windows-msvc --bundles nsis
+            args: --target x86_64-pc-windows-msvc
 
     runs-on: ${{ matrix.platform }}
     steps:
@@ -71,4 +71,4 @@ jobs:
           releaseName: 'ScrcpyGUI ${{ github.ref_name }}'
           releaseDraft: true
           prerelease: false
-          args: --target i686-pc-windows-msvc --bundles nsis
+          args: --target i686-pc-windows-msvc
