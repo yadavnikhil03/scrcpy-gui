@@ -1,0 +1,12 @@
+# Rust / Cargo
+/target/
+**/*.rs.bk
+Cargo.lock
+
+# Tauri
+/gen/schemas
+
+# Scrcpy Local Binaries (in case they end up here)
+/scrcpy-bin/
+scrcpy_temp.zip
+scrcpy_temp.tar.gz

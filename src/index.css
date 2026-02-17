@@ -1,0 +1,97 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: var(--primary);
+  --font-sans: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+}
+
+:root {
+  --primary: #8b5cf6;
+  --bg-base: #010101;
+}
+
+[data-theme='ultraviolet'] {
+  --primary: #8b5cf6;
+  --bg-base: #06040a;
+}
+
+[data-theme='astro'] {
+  --primary: #3b82f6;
+  --bg-base: #04050a;
+}
+
+[data-theme='carbon'] {
+  --primary: #ffffff;
+  --bg-base: #0a0a0a;
+}
+
+[data-theme='emerald'] {
+  --primary: #10b981;
+  --bg-base: #040a08;
+}
+
+[data-theme='bloodmoon'] {
+  --primary: #ef4444;
+  --bg-base: #0a0404;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg-base);
+  color: #fff;
+  transition: color 0.3s, background-color 0.5s ease;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46;
+}
+
+.glass {
+  background: rgba(24, 24, 27, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Custom Range Slider */
+.custom-range::-webkit-slider-thumb {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: grab;
+  border: 2px solid #000;
+  transition: transform 0.1s ease;
+}
+
+.custom-range::-webkit-slider-thumb:active {
+  cursor: grabbing;
+  transform: scale(1.2);
+}
+
+.custom-range::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  background: var(--primary);
+  border-radius: 50%;
+  cursor: grab;
+  border: 2px solid #000;
+}
